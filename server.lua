@@ -1,0 +1,10 @@
+RegisterServerEvent('kickPlayerBecausePing')
+AddEventHandler('kickPlayerBecausePing', function ()
+    local playerName = GetPlayerName(source)
+    DropPlayer(source, "Hi, " ..playerName.. '! \nYou got kicked because your ping was to high.')
+end)
+
+RegisterServerEvent('requestPlayerPing')
+AddEventHandler('requestPlayerPing', function ()
+    TriggerClientEvent('responsePlayerPing', source, GetPlayerPing(source))
+end)
